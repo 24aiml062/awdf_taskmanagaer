@@ -10,9 +10,9 @@
 
 function validateTaskId(req, res, next) {
   const { id } = req.params;
-  // Valid in-memory or mongo id check
-  if (!id || id.trim() === '') {
-    return res.status(400).json({ error: 'Task ID is required' });
+  // MongoDB ObjectIds are 24-character hexadecimal strings
+  if (!id || !/^[a-fA-F0-9]{24}$/.test(id)) {
+    return res.status(400).json({ error: 'Invalid task ID format. Must be a 24-character hexadecimal string' });
   }
   next();
 }

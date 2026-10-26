@@ -1,0 +1,30 @@
+﻿{
+  "name": "task-manager-api-24aiml062",
+  "version": "1.0.0",
+  "description": "RESTful Task Management API with Express, MongoDB, Caching, Event-driven notifications, and CI/CD",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "jest --detectOpenHandles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/24aiml062/awdf_taskmanagaer.git"
+  },
+  "author": "Parita Shah (24AIML062)",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.1",
+    "node-cache": "^5.1.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
+  }
+}

@@ -9,6 +9,9 @@ const { requireJsonContentType, notFoundHandler } = require('./middleware/valida
 const taskRoutes = require('./routes/taskRoutes');
 const authRoutes = require('./routes/authRoutes');
 
+// P10: Load event listeners
+require('./events/listeners');
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/taskdb';

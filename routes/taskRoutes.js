@@ -3,6 +3,7 @@ const router = express.Router();
 const { validateTaskId } = require('../middleware/validators');
 const Task = require('../models/Task');
 const cache = require('../cache');
+const taskEvents = require('../events/taskEvents');
 
 // GET /tasks - Fetch all tasks with in-memory caching (P9)
 router.get('/', async (req, res, next) => {
@@ -24,12 +25,19 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-// POST /tasks - Create a new task and invalidate cache (P9)
+// POST /tasks - Create task, invalidate cache, respond immediately, and emit async event (P10)
 router.post('/', async (req, res, next) => {
   try {
     const task = await Task.create(req.body);
     cache.del('all_tasks'); // Invalidate cache on write
+
+    // P10: Send HTTP 201 response immediately to the client
+    const responseTime = new Date().toISOString();
+    console.log(`[API Response] [${responseTime}] 201 Created sent for task "${task.title}"`);
     res.status(201).json(task);
+
+    // Emit asynchronous event after response is dispatched
+    taskEvents.emit('task-created', task);
   } catch (err) {
     if (err.name === 'ValidationError') {
       const messages = Object.values(err.errors).map((e) => e.message);

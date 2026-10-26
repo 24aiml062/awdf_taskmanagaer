@@ -8,6 +8,7 @@ const errorHandler = require('./middleware/errorHandler');
 const { requireJsonContentType, notFoundHandler } = require('./middleware/validators');
 const taskRoutes = require('./routes/taskRoutes');
 const authRoutes = require('./routes/authRoutes');
+const aiRoutes = require('./routes/aiRoutes');
 
 // P10: Load event listeners
 require('./events/listeners');
@@ -30,6 +31,7 @@ app.use(requireJsonContentType);
 // Resource routes
 app.use('/tasks', taskRoutes);
 app.use('/auth', authRoutes);
+app.use('/api/ai', aiRoutes);
 
 // Undefined route & error handling
 app.use(notFoundHandler);

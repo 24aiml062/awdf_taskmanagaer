@@ -7,6 +7,7 @@ const logger = require('./middleware/logger');
 const errorHandler = require('./middleware/errorHandler');
 const { requireJsonContentType, notFoundHandler } = require('./middleware/validators');
 const taskRoutes = require('./routes/taskRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -25,6 +26,7 @@ app.use(requireJsonContentType);
 
 // Resource routes
 app.use('/tasks', taskRoutes);
+app.use('/auth', authRoutes);
 
 // Undefined route & error handling
 app.use(notFoundHandler);

@@ -1,4 +1,4 @@
-﻿const taskEvents = require('./taskEvents');
+const taskEvents = require('./taskEvents');
 
 // P10: Asynchronous event handler for task-created event
 taskEvents.on('task-created', (task) => {

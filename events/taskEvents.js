@@ -1,4 +1,4 @@
-﻿const EventEmitter = require('events');
+const EventEmitter = require('events');
 
 class TaskEventsEmitter extends EventEmitter {}
 

@@ -1,4 +1,4 @@
-﻿# Task Manager API — Backend Service
+# Task Manager API — Backend Service
 
 A high-performance RESTful Task Management backend engineered with Node.js, Express, and MongoDB/Mongoose. Designed with custom middleware pipelines, structured validation, bcrypt + JWT authentication, in-memory response caching with `node-cache`, asynchronous event-driven background processing with native `EventEmitter`, Docker multi-container orchestration, and automated CI/CD with GitHub Actions.
 

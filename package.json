@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "task-manager-api-24aiml062",
   "version": "1.0.0",
   "description": "RESTful Task Management API with Express, MongoDB, Caching, Event-driven notifications, and CI/CD",

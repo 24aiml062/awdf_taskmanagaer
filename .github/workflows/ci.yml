@@ -1,4 +1,4 @@
-﻿name: Task Manager CI Pipeline
+name: Task Manager CI Pipeline
 
 on:
   push:

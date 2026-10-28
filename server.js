@@ -29,6 +29,13 @@ app.use(logger);
 app.use(requireJsonContentType);
 
 // Resource routes
+app.get('/', (req, res) => {
+  res.json({
+    status: 'ok',
+    message: 'Task Manager API is running live',
+    endpoints: ['/tasks', '/auth', '/api/ai']
+  });
+});
 app.use('/tasks', taskRoutes);
 app.use('/auth', authRoutes);
 app.use('/api/ai', aiRoutes);
